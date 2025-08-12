@@ -1,0 +1,4 @@
+.vscode
+langchain-docs
+.env
+.DS_Store
