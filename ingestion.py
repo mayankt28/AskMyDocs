@@ -55,7 +55,7 @@ async def index_documet_async(documents: List[Document], batch_size: int = 50):
         return True
     
     tasks = [add_batch(batch, i+1) for i, batch in enumerate(batches)]
-    results = asyncio.gather(*tasks, return_exceptions=True)
+    results = await asyncio.gather(*tasks, return_exceptions=True)
 
     successful = sum(1 for result in results if result is True)
 
@@ -81,7 +81,7 @@ async def main():
     res = tavily_crawl.invoke(
         {
             'url': 'https://python.langchain.com/',
-            'max_depth': 1,
+            'max_depth': 5,
             'extract_depth': 'advanced'
         }
     )
@@ -102,7 +102,7 @@ async def main():
         f"Text Splitter: Created {len(splitted_docs)} chunks from {len(all_docs)} documents"
     )
 
-    await index_documet_async(splitted_docs, batch_size=500)
+    await index_documet_async(splitted_docs, batch_size=300)
 
     log_header("PIPELINE COMPLETE")
     log_success("🎉 Documentation ingestion pipeline finished successfully!")
