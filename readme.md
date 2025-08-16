@@ -17,20 +17,6 @@ It allows you to **upload, crawl, and query documentation** in natural language 
 
 ---
 
-## 🏗️ Architecture  
-
-```mermaid
-flowchart TD
-    A[TavilyCrawl] --> B[Text Splitter]
-    B --> C[Pinecone Vector Store]
-    C --> D[LangChain Retriever]
-    D --> E[LLM (OpenAI)]
-    E --> F[Streamlit UI]
-
-```
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
