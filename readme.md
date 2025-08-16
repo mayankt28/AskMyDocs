@@ -17,15 +17,16 @@ It allows you to **upload, crawl, and query documentation** in natural language 
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture  
 
 ```mermaid
 flowchart TD
-    A[TavilyCrawl] -->|Fetch Docs| B[Text Splitter]
-    B -->|Chunks| C[Pinecone Vector Store]
-    C -->|Embeddings| D[LangChain Retriever]
-    D -->|Context| E[LLM (OpenAI)]
-    E -->|Answer + Sources| F[Streamlit UI]
+    A[TavilyCrawl] --> B[Text Splitter]
+    B --> C[Pinecone Vector Store]
+    C --> D[LangChain Retriever]
+    D --> E[LLM (OpenAI)]
+    E --> F[Streamlit UI]
+
 ```
 
 ---
